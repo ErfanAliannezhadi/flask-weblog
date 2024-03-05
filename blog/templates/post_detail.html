@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+    {% if post.auther == current_user %}
+        <a class="btn btn-danger" href="{{ url_for('post_delete', post_id=post.id) }}">Delete</a>
+        <a class="btn btn-info" href="{{ url_for('post_update', post_id=post.id) }}">Update</a>
+    {% endif %}
+    <h3>{{ post.title }}</h3>
+    <small>{{ post.auther.username }} {{ post.date }}</small>
+    <hr>
+    <p>{{ post.content }}</p>
+{% endblock %}
